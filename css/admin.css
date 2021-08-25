@@ -1,0 +1,115 @@
+#dashboardMain_container{
+    display: flex;
+    flex-direction: row;
+}
+.dashboard_sidebar{
+    width: 20%;
+    background: #323232;
+    height: 150vh;
+}
+.dashboard_content_container{
+    width: 80%;
+    background: #f4f6f9;
+}
+.dashboard_logo{
+    margin-top: 15px;
+    color: #f685a1;
+    font-size: 60px;
+    text-align: center;
+}
+.dashboard_sidebar_user{
+    /*
+    text-align: center;
+    position: relative;
+    */
+    padding-bottom: 40px;
+    border-bottom: 2px solid #fff;
+}
+
+
+.dashboard_sidebar_user img{
+    margin-top: -200px;
+    width: 80px;
+    height: 80px;
+    margin-left: 90px;
+    display: inline-block;
+    border-radius: 50%;
+    border: 2px solid #f685a1;
+
+}
+.dashboard_sidebar_user span{
+    position: absolute;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: #fff;
+    display: inline;
+    margin-left: 90px;
+    margin-top: 10px;
+}
+.dashboard_menu_lists{
+    margin-left: -20px;
+}
+.dashboard_menu_lists li{
+    padding: 10px 10px;
+    font-size: 18px;
+    text-transform: uppercase;
+
+}
+.dashboard_menu_lists li a{
+    text-decoration: none;
+    color: #fff;
+ 
+} 
+.dashboard_menu_lists li.menuActive{
+    background: #f685a1;
+    color: #fff;
+}
+.dashboard_menu_lists li:hover{
+    background: #f685a1;
+    color: #fff;
+    transition: 0.3s all;
+
+} 
+.dashboard_topNav{
+    background: #fff;
+    padding: 15px;
+}
+.dashboard_topNav a{
+    color: #848383;
+    font-size: 20px;
+    text-decoration: none;
+
+}
+a#logoutBtn{
+    float: right;
+}
+.dashboard_content{
+    padding: 50px 10px 10px 10px;
+}
+.dashboard_container_main{
+    background: #fff;
+    min-height: 800px;
+    height: 80%;
+
+} 
+.sub-menu-1{
+    display: none;
+    background: transparent;
+}
+.dashboard_sidebar ul li:hover .sub-menu-1{
+    display: inline-flex;
+    position: relative;
+    background:  #323232;
+    
+}
+/*
+.dashboard_sidebar ul li:hover .sub-menu-1 ul{
+    display: block;
+    margin: 10px;
+    border-bottom: 1px dotted #fff;
+    background: transparent;
+    border-radius: 0;
+    text-align: left;
+
+}
+*/

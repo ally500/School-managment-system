@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    .menu-bar{
+    background: rgb(0, 100,0);
+    text-align: center;
+  }
+  .menu-bar ul {
+       display: inline-flex;
+       list-style: none;
+       color: #fff;
+  }
+  .menu-bar ul li{
+      width: 120px;
+      margin: 15px;
+      padding: 1px;
+  }
+  .menu-bar ul li a {
+      text-decoration: none;  
+      color: white;
+  }
+  .active, .menu-bar ul li:hover {
+      background: #2bab0d;
+      border-radius: 3px;
+  }
+  .menu-bar .fa {
+      margin-right: 8px;
+  }
+  
+  .sub-menu-1{
+      display: none;
+  }
+  
+  .menu-bar ul li:hover .sub-menu-1{
+      display:inline-block;
+      position: absolute;
+      background: rgb(0, 100,0);
+      margin-top: 15px; 
+      margin-left: -10px;
+  }
+
+  .menu-bar ul li:hover .sub-menu-1 ul{
+      display: block;
+      margin: 10px;
+      border-bottom: 1px dotted #fff;
+      background: transparent;
+      border-radius: 0;
+      text-align: left;
+
+  }
+  .link_up a{
+    text-decoration: none;
+    color: rgb(0,200,0)
+  }
+  .image img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+ .imag img{
+  height: 100%;
+    width: 100%;
+    object-fit: cover;
+ }
+
+
+</style>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+
+<div class="header">
+  <h2> A UNIVERSITY SCHOOL</h2>
+</div>
+<div class="menu-bar">
+    <ul>
+        <li class="active"><a href="#"><i class="fa fa-home"></i>Home</a></i></li>
+        <li><a href="#"><i class="fa fa-user-circle-o"></i>Students</a>
+            <div class="sub-menu-1">
+                <ul>
+                    <li><a href="login.php">Log In</a></li>
+                    <li><a href="registration.php">Registration</a></li>
+                    <li><a href="#"></a></li>
+                </ul>
+            </div>
+        </li>
+        <li><a href="#"><i class="fa fa-trophy"></i>Our Mission</a></li>
+        <li><a href="#"><i class="fa fa-clone"></i>Service</a></li>
+        <li><a href="contact.php"><i class="fa fa-phone"></i>Contact Us</a></li>
+    </ul>
+</div>
+<div class="row">
+  <div class="leftcolumn">
+    <div class="card">
+      <h2>GRADUATION HISTORY </h2>
+      <h4>This university was started in 2020</h4>
+      <div class="image">
+
+        <img src="css/m2.jpg" alt="">
+    
+      </div>
+      <h4>Many years ago this school keep making evolution</h4>
+      <p>In the 10th century, Oxford became an important military frontier town between 
+      the kingdoms of Mercia and Wessex and was raided by Danes. In 1002, many Danes were
+       killed in Oxford during the St. Brice's Day massacre ordered by athelred the Unready. The s
+       keletons of more than thirty suspected victims were unearthed in 2008 during the course of
+        building work at St John's College. The ‘massacre’ was a contributing factor to King Sweyn I 
+        of Denmark’s invasion of England in 1003 and the sacking of Oxford by the Danes in 1004</p>
+    </div>
+    <div class="card">
+      <h2> CAMPUS LIFE</h2>
+      <h4>This university was started in 2020</h4>
+      <div class="image">
+          <img src="css/image1.jpg" alt="">
+      </div>
+      <h4>Many years ago this school keep making evolution.</h4>
+      <p>As the oldest university in the English-speaking world, Oxford is a unique and historic
+       institution. There is no clear date of foundation, but teaching existed at Oxford in some 
+       form in 1096 and developed rapidly from 1167, when Henry II banned English
+       students from attending the University of Paris</p>
+    </div>
+  </div>
+  <div class="rightcolumn">
+    <div class="card">
+      <h2>About Us</h2>
+      <div class="imag">
+
+        <img src="css/image4 (3).jpg" alt="" style="width:270px; height:400px">
+      </div>
+      <p>I'm TUYIZERE Ellisa this college is awesome</p>
+
+      <div class="imag">
+
+        <img src="css/image4 (1).jpg" alt="" style="width:270px; height:400px">
+      </div>
+         <p>I'm TUYIZERE Ellisa this college is awesome</p>
+
+      <div class="imag">
+
+        <img src="css/image4 (4).jpg" alt="" style="width:270px; height:400px">
+      </div>
+         <p>I'm TUYIZERE Ellisa this college is awesome</p>
+      
+    </div>
+
+    <div class="card">
+      <h3>Follow Us</h3>
+      <div class="link_up">
+      <a href="#"><i class="fa fa-facebook-official"></i></i>Facebook</a><br><br>
+      <a href=""><i class="fa fa-twitter-square"></i></i>Twitter</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <h2> A university school &copy; <?php echo date ('Y'); ?></h2>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+  

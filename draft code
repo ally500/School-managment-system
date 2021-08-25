@@ -1,0 +1,444 @@
+// registration draft code
+<?php
+session_start();
+
+$message="";
+
+$conn= mysqli_connect("localhost","root","","school");
+
+if(isset($_POST['sub'])){
+
+   $frstname=$_POST['firstname'];
+   $lstname=$_POST['lastname'];
+   $course=$_POST['crsname'];
+   $gender=$_POST['gender'];
+   $cuntry=$_POST['countrycode'];
+   $phone=$_POST['phone'];
+   $birthday=$_POST['birthday'];
+   $email=$_POST['email'];
+   $password=$_POST['psw'];
+   $confirm=['psw-repeat'];
+    
+   
+
+    $query="INSERT INTO students (first_name,last_name,course_Name,gender,country_code,
+    phone_number,birth_date,email,password) VALUES('".$frstname."','".$lstname."','".$course."','".$gender."',
+    '".$cuntry."','".$phone."','".$birthday."','".$email."','".$password."')";
+ 
+    $results=mysqli_query($conn,$query);
+
+    if($results){
+
+      $message="Account Successfully Created";
+
+    
+    }
+
+   }
+
+?>
+
+
+<!DOCTYPE html>  
+<html>  
+<head>  
+<meta name="viewport" content="width=device-width, initial-scale=1">  
+<style>  
+body{  
+  font-family: Calibri, Helvetica, sans-serif;  
+  background-image: url(css/image3.jpg);
+  background-size: cover;
+    background-position: top;
+  margin-left: 300px;
+  margin-right: 300px;  
+}  
+.container {  
+    padding: 50px;
+    background-color: lightblue;    
+    
+}  
+  
+input[type=text], input[type=password], textarea {  
+  width: 100%;  
+  padding: 15px;  
+  margin: 5px 0 22px 0;  
+  display: inline-block;  
+  border: none;  
+  background: #f1f1f1;  
+}  
+input[type=text]:focus, input[type=password]:focus {  
+  background-color: orange;  
+  outline: none;  
+}  
+ div {  
+            padding: 10px 0;  
+         }  
+hr {  
+  border: 1px solid #f1f1f1;  
+  margin-bottom: 25px;  
+}  
+.registerbtn {  
+  background-color: #4CAF50;  
+  color: white;  
+  padding: 16px 20px;  
+  margin: 8px 0;  
+  border: none;  
+  cursor: pointer;  
+  width: 100%;  
+  opacity: 0.9;  
+}  
+.registerbtn:hover {  
+  opacity: 1;  
+}
+.avatar{
+    margin-top: 60px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: -50px;
+    left: calc(50% - 50px);
+} 
+</style>  
+</head>  
+<body> 
+<form action="" method="POST">
+    <div class="log">
+        <img src="css/avatar.png" class="avatar" alt="">
+    </div>  
+  <div class="container">  
+  <center> <h1> Student Registeration Form </h1></center>
+  <?php echo$message; ?>
+  <hr> 
+ 
+
+  <label> Firstname </label>   
+<input type="text" name="firstname" placeholder= "Firstname" size="15" required />
+
+<label> Lastname: </label>    
+<input type="text" name="lastname" placeholder="Lastname" size="15"required />   
+<div>  
+<label>   
+Course :  
+</label>
+
+<select name="crsname"> 
+<option>Course</option>
+<?php
+$conn= mysqli_connect("localhost","root","","school");
+$query = "SELECT * FROM course";
+$results=mysqli_query($conn, $query);
+while($row = mysqli_fetch_array($results))
+{
+?>
+<option><?php echo $row["course_name"]; ?></option>
+<?php
+}
+?>
+</select>
+
+</div>
+
+<div>  
+<label>   
+Gender :  
+</label><br>  
+<input type="radio" value="Male" name="gender" checked > Male   
+<input type="radio" value="Female" name="gender"> Female   
+<input type="radio" value="Other" name="gender"> Other  
+  
+</div>  
+<label>   
+Phone :  
+</label>  
+<input type="text" name="countrycode" placeholder="Country Code"  value="+250" size="2"/>   
+<input type="text" name="phone" placeholder="phone no." size="10" required> 
+<!--  
+Current Address :  
+<textarea cols="80" rows="5" placeholder="Current Address" name="adress" value="address" required> 
+</textarea>
+-->
+BirthDate:<br><br>
+<input type="date"  name="birthday" required><br><br>
+
+ <label for="email"><b>Email</b></label>  
+ <input type="text" placeholder="Enter Email" name="email" required>  
+  
+    <label for="psw"><b>Password</b></label>  
+    <input type="password" placeholder="Enter Password" name="psw" required>  
+     <!--
+    <label for="psw-repeat"><b>Re-type Password</b></label>  
+    <input type="password" placeholder="Retype Password" name="psw-repeat" required>
+    -->  
+    <button type="submit" name="sub" class="registerbtn">Register</button>  
+</form>
+</body>  
+</html>  
+
+
+/// end of registration code
+
+
+
+//login have been used
+<?php
+session_start();
+?>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <link rel="stylesheet" href="css/logstyle.css">
+    </head>
+    <body>
+        <div class="loginbox">
+            <img src="css/avatar1.png" class="avatar" alt="">
+                 
+                  <h1>Login Here</h1>
+                  <form action="login.php"  method="POST">
+                      <p>Email</p>
+                      <input type="text" name="uname" placeholder="Enter Email" required>
+                      <p>Password</p>
+                      <input type="password" name="pass" placeholder="Enter Passoword" required><br>
+                      <input type="submit" name="sub" value="Login"><br>
+                      <a href="stuff_login.php">Log In as Stuff</a><br>
+                      <a href="#">Lost Your Password?</a><br>
+                      <a href="registration.php">Don't Have An Account?</a>
+                  </form>
+
+        </div>
+
+
+    </body>
+</html>
+
+/// end of it!
+
+
+if(isset($_POST['sub'])){
+     
+    $studeid=$_POST['idname'];
+    $pass=$_POST['pass'];
+
+    $query= "SELECT * FROM students WHERE student_id='$studeid' AND password='$pass'";
+    
+    $result=mysqli_query($conn,$query);
+
+    if (mysqli_num_rows($result) == 1){
+        $row = mysqli_fetch_assoc($result);
+
+        if ($row['student_id'] == $studeid && $row['password'] == $pass){
+            $_SESSION['email'] = $row['email'];
+            $_SESSION['first_name'] = $row['first_name'];
+            $_SESSION['last_name'] = $row['last_name'];
+            $_SESSION['student_id'] = $row['student_id'];
+
+            header("Location: welcome.php");
+        }
+
+    }else{
+        header("location:login_form.php");
+    }
+
+
+}
+//pending
+<?php
+        $conn= mysqli_connect("localhost","root","","school");
+        $query="SELECT * FROM requests ";
+        $result=mysqli_query($conn,$query);
+?>
+
+
+<!DOCTYPE html>
+<html>
+<title></title>
+<style>
+ table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+    }  
+      th, td {
+         padding: 15px;
+    }
+</style>
+
+<body>
+<?php
+if (mysqli_num_rows($result) > 0) {
+?>
+    
+<table>
+
+   <tr>
+   <th>Email</th>
+   <th>Message</th>
+   <th>Date</th>
+   <th>Option</th>
+   </tr>
+
+   <?php
+        while($row = mysqli_fetch_array($result)) {
+			
+        ?>
+
+   <tr>
+   <td><?php echo $row["email"]; ?></td>
+   <td><?php echo $row["message"]; ?></td>
+   <td><?php echo $row["date"]; ?></td>
+   <td><a href="accept.php?requestID=<?php echo $row["requestID"]; ?>">Accept</a> ||
+   <a href="#?requestID=<?php echo $row["requestID"]; ?>"> Reject</a></td>
+   </tr>
+
+<?php
+ }
+?>
+</table>
+
+<?php
+ }else{
+    echo "No Pending Requests.";
+}
+ ?>
+
+
+</body>
+</html>
+//end
+
+// search code
+<?php
+session_start();
+if (isset($_SESSION['StudentID'])){
+  ?>
+$conn = mysqli_connect("localhost","root","","school");
+if(count($_POST)>0) {
+$idno=$_POST['id_no'];
+$result = mysqli_query($conn,"SELECT * FROM class_results where results_id='$idno' ");
+
+}
+
+?>
+<!DOCTYPE html>
+<html>
+<head>
+<title>results</title>
+<style>
+table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+    }  
+      th, td {
+         padding: 15px;
+    }
+
+</style>
+</head>
+<body>
+<table>
+<tr>
+<th>NAME</th>
+<th>CLASS NAME</th>
+<th>MARKS</th>
+
+</tr>
+<?php
+$i=0;
+while($row = mysqli_fetch_array($result)) {
+?>
+<tr>
+<td><?php echo $row["students_name"]; ?></td>
+<td><?php echo $row["class_name"]; ?></td>
+<td><?php echo $row["marks"]; ?></td>
+</tr>
+<?php
+$i++;
+}
+?>
+</table><br><br>
+<button><a href="welcome.php">BACK HOME</a></button>
+
+
+</body>
+</html>
+
+<?php 
+        
+
+}else{
+     header("Location: login_form.php");
+     exit();
+}
+ ?>
+
+
+
+//iframe css design
+<-------------------------------------------->
+.container{
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 56.25%;
+    border: solid 1px black;
+    
+}
+.responsive-iframe{
+    position: absolute;
+    top: 80px;
+    left: 400px;
+    bottom: 0;
+    right: 0;
+    width: 50%;
+    height: 50%;
+}
+<------------------------------------------------>
+
+$query="INSERT INTO student_information(StudentID,gender,birth_date,phone_number,country_id,province_id,city_id)
+  VALUES('$id','$gender','$birthdate','$phonenbr','$country','$province',' $city')";
+$result=mysqli_query($conn,$query)or die ( mysqli_error($conn));
+<----------------------------------------------------------------------------------->
+
+<?php
+
+   include('db/dbconn.php');
+   if (isset($_POST['signup']))
+{
+   $firstname=$_POST['firstname'];
+   $mi=$_POST['mi'];
+   $lastname=$_POST['lastname'];
+   $address=$_POST['address'];
+   $country=$_POST['country'];
+   $zipcode=$_POST['zipcode'];  
+   $mobile=$_POST['mobile'];
+   $telephone=$_POST['telephone'];
+   $email=$_POST['email'];
+   $password=$_POST['password'];
+   $check = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM `customer` WHERE `email` = '$email'"));
+       if($check == 1)
+           {
+               echo "<script>alert('EMAIL ALREADY EXIST')</script>";     
+           }
+          
+           else
+               {
+                   mysqli_query ($conn, "INSERT INTO customer (firstname, mi, lastname, address, country, zipcode, mobile, telephone, email, password)
+                   VALUES ('$firstname', '$lastname', '$address', '$country', '$zipcode', '$mobile', '$telephone', '$email', '$password'")
+                   or die(mysqli_error());  
+               }              
+                  
+}
+?>
+//query that join class and subject 
+SELECT c.class_id,c.class_name,sub.subject_id,sub.subject_name
+FROM class as c
+INNER JOIN subject as sub ON c.class_id= sub.class_id
+
+//query that view in student_marks
+
+SELECT ac.StudentID,ac.FirstName,ac.LastName,sub.subject_name,
+       c.class_name,stm.marks
+FROM accounts AS ac
+INNER JOIN student_marks as stm ON ac.StudentID=stm.StudentID
+INNER JOIN subject as sub ON sub.subject_id=stm.subject_id
+INNER JOIN class as c ON c.class_id=stm.class_id
